@@ -38,3 +38,11 @@ def norm_spectral(A):
     eig_values = np.linalg.eigvals(A)
     eig_values_norms = np.array([np.linalg.norm(elem) for elem in eig_values])
     return np.max(eig_values_norms)
+
+
+def count_norms(A):
+    norm_func_collection = [norm_1, norm_2, norm_3]
+    norm_values = [norm_func_collection[i](A) for i in range(len(norm_func_collection))]
+    for i, value in enumerate(norm_values):
+        print(f"{i+1}-ая норма: {value}")
+    return np.array(norm_values)
